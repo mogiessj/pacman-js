@@ -117,3 +117,21 @@ let createNewPacman = () => {
 
 createNewPacman();
 gameLoop();
+
+window.addEventListener("keydown", (event) => {
+    let k = event.keyCode;
+    setTimeout(() => {
+        if (k === 37 || k === 65) { // izquierda
+
+        }
+        else if (k === 38 || k === 87) { // arriba
+
+        }
+        else if (k === 39 || k === 68) { // derecha
+
+        }
+        else if (k === 40 || k === 83) { // abajo
+
+        }
+    }, 1)
+})
