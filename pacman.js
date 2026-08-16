@@ -38,7 +38,7 @@ class Pacman {
             case DIRECTION_LEFT:
                 this.x += this.speed;
                 break;
-            case DIRECTION_DOWN:
+            case DIRECTION_BOTTOM:
                 this.y -= this.speed;
                 break;
         }
@@ -55,7 +55,7 @@ class Pacman {
             case DIRECTION_LEFT:
                 this.x -= this.speed;
                 break;
-            case DIRECTION_DOWN:
+            case DIRECTION_BOTTOM:
                 this.y += this.speed;
                 break;
         }
@@ -76,7 +76,19 @@ class Pacman {
     }
 
     changeDirectionIfPossible() {
-
+        if (this.direction === this.nextDirection) {
+            return;
+        }
+        let tempDirection = this.direction;
+        this.direction = this.nextDirection;
+        this.moveForwards();
+        if (this.checkCollision()) {
+            this.moveBackwards();
+            this.direction = tempDirection;
+        }
+        else {
+            this.moveBackwards();
+        }
     }
 
     changeAnimation() {
