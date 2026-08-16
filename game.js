@@ -13,7 +13,7 @@ let wallInnerColor = "black";
 const DIRECTION_RIGHT = 4;
 const DIRECTION_UP = 3;
 const DIRECTION_LEFT = 2;
-const DIRECTION_DOWN = 1;
+const DIRECTION_BOTTOM = 1;
 
 let createRect = (x, y, width, height, color) => {
     canvasContext.fillStyle = color;
@@ -122,16 +122,16 @@ window.addEventListener("keydown", (event) => {
     let k = event.keyCode;
     setTimeout(() => {
         if (k === 37 || k === 65) { // izquierda
-
+            pacman.nextDirection = DIRECTION_LEFT;
         }
         else if (k === 38 || k === 87) { // arriba
-
+            pacman.nextDirection = DIRECTION_UP;
         }
         else if (k === 39 || k === 68) { // derecha
-
+            pacman.nextDirection = DIRECTION_RIGHT;
         }
         else if (k === 40 || k === 83) { // abajo
-
+            pacman.nextDirection = DIRECTION_BOTTOM;
         }
     }, 1)
 })
